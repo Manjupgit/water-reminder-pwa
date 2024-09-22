@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Reminder App</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon.png">
+</head>
+<body>
+  <h1>Water Reminder App</h1>
+  <p id="status">You're all set! We'll remind you to drink water every hour.</p>
+  <button id="start-btn">Start Reminder</button>
+  <button id="stop-btn">Stop Reminder</button>
+
+  <script src="script.js"></script>
+  <script>
+    // Register the service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker registration failed', err));
+      });
+    }
+  </script>
+</body>
+</html>
